@@ -1,22 +1,7 @@
 # Welcome to Jekyll!
 #
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
 # For technical reasons, this file is *NOT* reloaded automatically when you use
 # 'bundle exec jekyll serve'. If you change this file, please restart the server process.
-#
-# If you need help with YAML syntax, here are some quick references for you:
-# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
-# https://learnxinyminutes.com/docs/yaml/
-#
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
 
 title: Dynamic Automation
 email: sudesh@dynamicautomation.nl
@@ -26,15 +11,23 @@ description: >- # this means to ignore newlines until "baseurl:"
   Google search results) and in your feed.xml site description.
 baseurl: "/" # the subpath of your site, e.g. /blog
 url: "http://dynamicautomation.nl" # the base hostname & protocol for your site, e.g. http://example.com
+
 twitter_username: sudeshjethoe
 github_username:  sudeshjethoe
 
-# Build settings
-#theme: minimal-mistakes-jekyll
+minimal_mistakes_skin: default
+search: true
+
+
 remote_theme: "mmistakes/minimal-mistakes@4.21.0"
+
 plugins:
   - jekyll-feed
   - jekyll-include-cache
+
+include:
+  - _posts
+  - _site
 
 # Exclude from processing.
 # The following items will not be processed, by default.
@@ -55,3 +48,18 @@ plugins:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+
+author:
+  name: "Sudesh Jethoe"
+  avatar: "https://www.gravatar.com/avatar/300a064a668a97b462ef1eed24f346f5?size=250"
+  bio: "Placeholder bio!!"
+  links:
+     - label: "GitHub"
+       icon:  "fab fa-fw fa-github"
+       url:   "https://github.com/sudeshjethoe"
+     - label: "My Resume"
+       icon:  "fas fa-file-pdf"
+       url:   "{{ site.url }}/assets/cv.pdf"
+     - label: "LinkedIn"
+       icon:  "fab fa-linkedin"
+       url:   "https://www.linkedin.com/in/sudeshjethoe"
