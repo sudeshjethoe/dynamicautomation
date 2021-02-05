@@ -1,7 +1,9 @@
-# Welcome to Jekyll!
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+# _config.yml
+# bundle exec jekyll build -v
+# (bundle exec) jekyll serve
+# JEKYLL_GITHUB_TOKEN=********** jekyll serve
+repository: sudeshjethoe/sudeshjethoe.github.io
+
 
 title: Dynamic Automation
 email: sudesh@dynamicautomation.nl
@@ -18,7 +20,6 @@ github_username:  sudeshjethoe
 minimal_mistakes_skin: default
 search: true
 
-
 # build settings
 markdown: kramdown
 remote_theme: "mmistakes/minimal-mistakes"
@@ -30,8 +31,7 @@ timezone: "Europe/Amsterdam"
 
 
 include:
-  - _posts
-  - _site
+  - _pages
 
 plugins:
   - jekyll-feed
@@ -51,7 +51,7 @@ author:
        url:   "https://github.com/sudeshjethoe"
      - label: "My Resume"
        icon:  "fas fa-file-pdf"
-       url:   "{{ site.url }}/assets/cv.pdf"
+       url:   "/assets/cv.pdf"
      - label: "LinkedIn"
        icon:  "fab fa-linkedin"
        url:   "https://www.linkedin.com/in/sudeshjethoe"
