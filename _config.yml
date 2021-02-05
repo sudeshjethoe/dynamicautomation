@@ -19,35 +19,27 @@ minimal_mistakes_skin: default
 search: true
 
 
-remote_theme: "mmistakes/minimal-mistakes@4.21.0"
+# build settings
+markdown: kramdown
+remote_theme: "mmistakes/minimal-mistakes"
+# output
+permalink: /:categories/:title/
+paginate: 5
+paginate_path: /page:num/
+timezone: "Europe/Amsterdam"
 
-plugins:
-  - jekyll-feed
-  - jekyll-include-cache
 
 include:
   - _posts
   - _site
 
-# Exclude from processing.
-# The following items will not be processed, by default.
-# Any item listed under the `exclude:` key here will be automatically added to
-# the internal "default list".
-#
-# Excluded items can be processed by explicitly listing the directories or
-# their entries' file path in the `include:` list.
-#
-# exclude:
-#   - .sass-cache/
-#   - .jekyll-cache/
-#   - gemfiles/
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules/
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+plugins:
+  - jekyll-feed
+  - jekyll-include-cache
+  - jekyll-sitemap
+  - jekyll-paginate
+  - jekyll-gist
+  - jekyll-remote-theme
 
 author:
   name: "Sudesh Jethoe"
@@ -63,3 +55,31 @@ author:
      - label: "LinkedIn"
        icon:  "fab fa-linkedin"
        url:   "https://www.linkedin.com/in/sudeshjethoe"
+
+defaults:
+  # _posts
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: true
+      read_time: true
+      comments: true
+      share: true
+      related: true
+  # _pages
+  - scope:
+      path: "_pages"
+      type: pages
+    values:
+      layout: single
+      author_profile: true
+
+category_archive:
+  type: liquid
+  path: /categories/
+tag_archive:
+  type: liquid
+  path: /tags/
+
