@@ -1,7 +1,7 @@
 ---
-title: About Me
+title: Contact
 date: 2021-02-05
-permalink: /about/
+permalink: /contact/
 ---
 
 Hi
