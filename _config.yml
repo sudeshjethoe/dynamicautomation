@@ -4,15 +4,12 @@
 # JEKYLL_GITHUB_TOKEN=********** jekyll serve
 repository: sudeshjethoe/sudeshjethoe.github.io
 
-
 title: Dynamic Automation
 email: sudesh@dynamicautomation.nl
 description: >- # this means to ignore newlines until "baseurl:"
   Write an awesome description for your new site here. You can edit this
   line in _config.yml. It will appear in your document head meta (for
   Google search results) and in your feed.xml site description.
-baseurl: "/" # the subpath of your site, e.g. /blog
-url: "http://dynamicautomation.nl" # the base hostname & protocol for your site, e.g. http://example.com
 
 twitter_username: sudeshjethoe
 github_username:  sudeshjethoe
@@ -34,12 +31,12 @@ include:
   - _pages
 
 plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-gist
   - jekyll-feed
   - jekyll-include-cache
-  - jekyll-sitemap
-  - jekyll-paginate
-  - jekyll-gist
-  - jekyll-remote-theme
+  - jemoji
 
 author:
   name: "Sudesh Jethoe"
@@ -55,6 +52,15 @@ author:
      - label: "LinkedIn"
        icon:  "fab fa-linkedin"
        url:   "https://www.linkedin.com/in/sudeshjethoe"
+
+footer:
+  links:
+    - label: "Twitter"
+      icon: "fab fa-fw fa-twitter-square"
+      url: "https://twitter.com/sudeshjethoe"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/sudeshjethoe"
 
 defaults:
   # _posts
@@ -82,4 +88,3 @@ category_archive:
 tag_archive:
   type: liquid
   path: /tags/
-

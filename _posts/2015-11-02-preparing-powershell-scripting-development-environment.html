@@ -1,0 +1,121 @@
+---
+layout: post
+status: publish
+published: true
+title: Preparing Powershell (Scripting) Development Environment
+author:
+  display_name: Sudesh Jethoe
+  login: sudeshjethoe
+  email: sudesh@jethoe.nl
+  url: ''
+author_login: sudeshjethoe
+author_email: sudesh@jethoe.nl
+wordpress_id: 57
+wordpress_url: https://sudeshjethoe.wordpress.com/?p=57
+date: '2015-11-02 12:49:39 +0100'
+date_gmt: '2015-11-02 11:49:39 +0100'
+categories:
+- Uncategorized
+- powershell
+- windows
+tags:
+- conemu
+- powershell
+- psreadline
+- windows
+comments: []
+---
+<p>The Windows Powershell scripting language is a powerful advancement from older scripting language in Windows (Batch, VBScript). The language integrates features from other scripting languages (bash) and it is able to utilize existing (.Net) libraries.</p>
+<p>A big difference between other scripting languages and Powershell is that it is fully object-based and not text-based. Therefore it is important to keep in mind that what you might see as output on your screen is only a representation of the object, but not the object itself.</p>
+<p>In this post I will explain the basic steps to set up a "sane" working environment, which allows you similar experience as a Bash shell with TMUX.</p>
+<p>In specific I will discuss the following tools/modules:</p>
+<ul>
+<li>ConEmu</li>
+<li>Environment Settings</li>
+<li>Powershell Profile</li>
+<li>Using Modules</li>
+<li>PSGet / NuGet</li>
+<li>PSReadline</li>
+</ul>
+<h2>ConEmu</h2>
+<p><a href="https://conemu.github.io/" target="_blank" rel="noopener noreferrer">ConEmu</a> is a console emulator with tabs and panes. It is able to provide a similar management experience as <a href="https://tmux.github.io/" target="_blank" rel="noopener noreferrer">Tmux</a> on Linux.</p>
+<p>For usage with Powershell I use the following settings in ConEmu:</p>
+<ul>
+<li>Startup
+<ul>
+<li>"Specified named task" = {Shells::Powershell}</li>
+<li>Tasks > "5 {Shells::Powershell}" = "C:\Windows\System32\WindowsPowershell\v1.0\powershell.exe -new_console:d:C:\gitrepo\powershell"</li>
+<li>Environment > "Set up environment variables" = "set HOME=C:\gitrepo\powershell"</li>
+</ul>
+</li>
+<li>Features
+<ul>
+<li>Colors = <xterm></li>
+</ul>
+</li>
+<li>Keys &amp; Macro
+<ul>
+<li>As you wish, I'd recommend setting the following:<br />
+create new split /vertical /horizontal, new tab, zoom, switch windows</li>
+</ul>
+</li>
+</ul>
+<p>The above settings ensure that any new shell is spawned from the directory containing my Powershell scripts and also allows to run scripts directly from this path.</p>
+<h2>Environment Settings</h2>
+<p>Only one environment variable should be set for Powershell, namely the "PSModulePath" variable. This variable allows the usage of modules (and functions within these modules) straight from any Powershell CLI, it doesn't matter whether it is the powershell.exe, the Powershell ISE, or a custom execution from a different path.<br />
+To set the variable go the following:</p>
+<pre language="powershell"># get current path
+$curpath = [Environment]::GetEnvironmentVariable("PSModulePath")
+# update path with new path
+[Environment]::SetEnvironmentVariable( "PSModulePath", "C:\gitrepo\powershell\modules;" + $curpath)
+# check if settings were updated correctly
+get-childitem env:psmodulepath
+</pre>
+<p>Source: <a href="https://technet.microsoft.com/en-us/library/dd878326(v=vs.85).aspx" target="_blank" rel="noopener noreferrer">MS TechNet</a></p>
+<h2>Powershell Profile</h2>
+<p>Powershell also allows you to specify a set of commands which will be run before spawning a new shell. This is convenient for pre-loading modules, setting aliases and setting the path.</p>
+<p>The powershell powerfile can be set up by creating a new textfile in the following location:<br />
+$HOME\Documents\WindowsPowerShell\Microsoft.Powershell_profile.ps1</p>
+<pre language="powershell"># powershell profile
+
+#set path
+$env:Path = "C:\gitrepo\powershell"
+
+# import modules
+import-module psreadline
+
+# set aliases
+set-alias vim 'C:\Program Files (x86)\Vim\Vim74\vim.exe'
+
+# To edit the Powershell Profile
+Function Edit-Profile {
+vim $profile
+}
+# To edit Vim settings
+Function Edit-Vimrc {
+vim D:\powershell\_vimrc
+}
+</pre>
+<p>Besides some convenient shortcuts, the most important module I load here is the PSReadline module.</p>
+<h2>Using Modules</h2>
+<p>Powershell modules allow you to reuse existing code of yourself and others.<br />
+Modules are basically plain powershell scripts without any directly executed statements, but merely (groups of) functions. Also the extension ends with .psm1 instead of .ps1 .</p>
+<p>Powershell modules can also contain some documentation and things like author and license however this is not required.</p>
+<p>To be able to use modules the PSModulePath needs to be set and your modules should be available in this path.</p>
+<p>Alternatively, from Powershell 4, the following path is <a href="https://technet.microsoft.com/en-us/library/dd878350(v=vs.85).aspx" target="_blank" rel="noopener noreferrer">added by default</a>, which can be used for global modules:<br />
+$EnvProgramFiles\WindowsPowerShell\Modules\</p>
+<h2>PSGet</h2>
+<p>PSGet is a module and repository of useful powershell modules, a.o. the PSReadline module, to install it follow the instructions <a href="http://psget.net/" target="_blank" rel="noopener noreferrer">on the site</a></p>
+<h2>PSReadline</h2>
+<p>PSReadline enables readline support for Powershell terminals. The features are a.o.</p>
+<ul>
+<li>enhanced tab completion</li>
+<li>history</li>
+<li>history search (Ctrl+r)</li>
+<li>command line editing</li>
+</ul>
+<p>See also Scripting Guy's blog at: http://blogs.technet.com/b/heyscriptingguy/archive/2014/06/17/a-better-powershell-command-line-edit.aspx</p>
+<p>To install PSReadline, first install PSGet, then execute the following command in your environment:</p>
+<pre language="powershell"># install psreadline with psget
+install-module PsReadLine
+</pre>

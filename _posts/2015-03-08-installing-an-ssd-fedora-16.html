@@ -1,0 +1,53 @@
+---
+layout: post
+status: publish
+published: true
+title: Installing an SSD (Fedora 16)
+author:
+  display_name: Sudesh Jethoe
+  login: sudeshjethoe
+  email: sudesh@jethoe.nl
+  url: ''
+author_login: sudeshjethoe
+author_email: sudesh@jethoe.nl
+wordpress_id: 24
+wordpress_url: http://sudeshjethoe.wordpress.com/?p=24
+date: '2015-03-08 16:53:57 +0100'
+date_gmt: '2015-03-08 16:53:57 +0100'
+categories:
+- Uncategorized
+- linux
+tags:
+- linux
+- fedora
+- ssd
+comments: []
+---
+<p>I just bought an SSD drive and I want to make sure it works best as it can.<br />
+I migrate my old / (ext4) partition to this drive.<br />
+For best performance I decide to switch to a GPT-based disk layout and use btrfs for the filesystem.</p>
+<p>Steps (mostly from <a href="https://wiki.archlinux.org/index.php/Solid_State_Drives" target="_new">ArchLinux SSD tutorial</a></p>
+<p>1: Physically install SSD,<br />
+2: Boot from livecd/usb (systemrescuecd) and create GPT partition table and partitions, using gdisk (g fdisk).<br />
+Create at least two partitions!<br />
+..BIOS_boot partition code: EF02 size: 1 MiB<br />
+..Linux/Windows data, root partition code: 0700 size: any<br />
+!! gdisk automatically aligns partitions on 2048-sector boundaries for best performance.</p>
+<p>3: Now format root partition as btrfs*:</p>
+<blockquote><p>mkfs.btrfs -L MyLinuxOS /dev/sda2</p></blockquote>
+<p>4: Copy data from old partition to new partition using rsync with -a(rchive) option to make sure all rights are preserved.</p>
+<p>5: Mount and chroot to new partition and install grub2:</p>
+<blockquote><p>mount /dev/sda2 /mnt<br />
+mount -o bind /dev /mnt/dev<br />
+mount -t proc /proc /mnt/proc<br />
+mount -t sysfs /sys /mnt/sys<br />
+chroot /mnt<br />
+## possibly fedora specific:<br />
+grub2-mkconfig -o /boot/grub2/grub.cfg<br />
+grub2-install /dev/sda</p></blockquote>
+<p>6: Edit fstab to make the most of the SSD:</p>
+<blockquote><p>LABEL=Fedora / btrfs defaults,noatime,discard,ssd 0 0</p></blockquote>
+<p>This post contains information from the following sources:<br />
+https://wiki.archlinux.org/index.php/Solid_State_Drives</p>
+<p>http://tincman.wordpress.com/2011/01/20/installing-arch-linux-onto-a-gpt-partitioned-btrfs-root-ssd-on-a-legacy-bios-system/</p>
+<p>http://fedoraproject.org/wiki/Grub2</p>

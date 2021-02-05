@@ -1,0 +1,35 @@
+---
+layout: post
+status: publish
+published: true
+title: Utilizing lvm thin provisioned snapshots
+author:
+  display_name: Sudesh Jethoe
+  login: sudeshjethoe
+  email: sudesh@jethoe.nl
+  url: ''
+author_login: sudeshjethoe
+author_email: sudesh@jethoe.nl
+wordpress_id: 84
+wordpress_url: https://sudeshjethoe.wordpress.com/?p=84
+date: '2016-02-14 15:05:20 +0100'
+date_gmt: '2016-02-14 14:05:20 +0100'
+categories:
+- Uncategorized
+- linux
+- lvm
+tags: []
+comments: []
+---
+<p>To fully utilize the few bits of space which is provided by my SSD, I always take the following approach.</p>
+<p>1. Create an "as large as possible" LVM volume group to hold all my data.<br />
+2. Create a thin_pool within the volume group for my virtual machines.<br />
+3. Create one "base VM" which contains just a bare installation of my preferred OS (inside the thinpool).<br />
+4. Now for each VM I need for my labs I create a snapshot from the base VM:<br />
+<code>lvcreate --snapshot --name thin_snapshot vg/thin_base</code></p>
+<p>5. Now to ensure that I can actually utilize the newly created snapshot I have to activate it first.<br />
+LVM (thin) snapshot are "by default" created in inactivated mode, but it also has the "<a href="http://man7.org/linux/man-pages/man7/lvmthin.7.html#Thin_Topics" target="_blank">activation skip flag</a>". This flag prevents the system from activing the partition with the usual commands. To active the partition use:<br />
+<code>lvchange -ay -K vg/thin_snapshot</code><br />
+To remove the skip flag completely add:<br />
+<code>lvchange -kn vg/thin_snapshot</code></p>
+<p>Finally the newly added thinly provisioned snapshot is available for usage by my virtualisation tool.</p>

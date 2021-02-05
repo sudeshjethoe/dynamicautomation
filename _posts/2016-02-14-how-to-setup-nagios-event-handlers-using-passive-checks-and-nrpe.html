@@ -1,0 +1,96 @@
+---
+layout: post
+status: publish
+published: true
+title: How to setup nagios event handlers using passive checks and NRPE
+author:
+  display_name: Sudesh Jethoe
+  login: sudeshjethoe
+  email: sudesh@jethoe.nl
+  url: ''
+author_login: sudeshjethoe
+author_email: sudesh@jethoe.nl
+wordpress_id: 43
+wordpress_url: https://sudeshjethoe.wordpress.com/?p=43
+date: '2016-02-14 15:23:09 +0100'
+date_gmt: '2016-02-14 14:23:09 +0100'
+categories:
+- Uncategorized
+- linux
+- nagios
+- nrpe
+- nsca
+tags: []
+comments: []
+---
+<h2>Introduction</h2>
+<p>Nagios event handlers allow nagios to automatically apply remedial actions when certain&nbsp;events occur (e.g. automatic restart of a service when it goes down).<br />
+The NSCA (Nagios Service Check Acceptor) daemon allows nagios to receive passive checks from&nbsp;hosts. Passive checks can be advantageous since they do not require the nagios server to&nbsp;initiate a connection to the client. Instead the client reports its results itself to the&nbsp;server.</p>
+<p>By combining event handlers with passive checks and NRPE, nagios can apply automatic&nbsp;remediation when hosts get online.</p>
+<p>To configure and enable event handling on the nagios server follow these steps</p>
+<p>1. Enable the path to the script (commands) to be triggered when the event handler should be&nbsp;run on the server side:</p>
+<p><code>/etc/nagios/private/resource.cfg<br />
+# uncomment $USER2$, as the path to the event handlers<br />
+$USER2$=/usr/lib64/nagios/plugins/eventhandlers<br />
+</code></p>
+<p>2. Place the server-side event handler in the $USER2$ path:<br />
+/usr/lib64/nagios/plugins/eventhandlers/handle_windows</p>
+<p>3. Add handle_windows as a new command in nagio(sql)</p>
+<p># see</p>
+<p><a href="https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/3/en/macrolist.html#servicestate" target="_blank">https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/3/en/macrolist.html#servicestate</a></p>
+<pre>Command: handle_windows
+ Commandline: $USER2$/handle_windows $SERVICESTATE$ $SERVICESTATETYPE$ $SERVICEATTEMPT$</pre>
+<pre>$HOSTADDRESS$ $SERVICEDISPLAYNAME$ $SERVICEDESC$</pre>
+<pre>define command {
+&nbsp; &nbsp; command_name handle_windows
+&nbsp; &nbsp; command_line $USER2$/handle_windows $SERVICESTATE$</pre>
+<pre>&nbsp; &nbsp; $SERVICESTATETYPE$ $SERVICEATTEMPT$ $HOSTADDRESS$ &nbsp; &nbsp; $SERVICEDISPLAYNAME$ $SERVICEDESC$
+&nbsp; &nbsp; register 1
+ }</pre>
+<p>4. Go to the services tab in nagiosql and<br />
+4.1 create a new service with a dummy check (will be reported by NSCA)<br />
+4.2 make sure the service check is configured and available on the client (next section)<br />
+4.3 enable the "Event handler" for this service (and select the right one (handle_windows)</p>
+<p>5. Now make sure that both Nagios and the NSCA client are active and that Nagios is able to&nbsp;execute commands via NRPE and receive results from NSCA (check nagios.cfg for<br />
+this).</p>
+<h2>Configuring the Nagios client</h2>
+<p>For Windows setup NSClient++</p>
+<p>Make sure the following is configured:</p>
+<p><code> # in modules<br />
+[/modules]<br />
+CheckExternalScripts = 1<br />
+CheckSystem = 1<br />
+NRPEServer = 1<br />
+NSCAClient = 1<br />
+Scheduler= 1</code></p>
+<pre>[/settings/default]
+ allowed hosts = #ipaddress of nagios server
+ timeout = ##</pre>
+<pre># enable NRPE daemon
+ [/settings/NRPE/server]
+ insecure = true
+ allow arguments = true
+ port = 5666</pre>
+<pre>[/settings/NSCA/client]
+ hostname = auto</pre>
+<pre>[/settings/NSCA/client/targets/default]
+ address = #ipadress of nagios server
+ encryption = 0</pre>
+<pre># set targets of external scripts for service checks and remediation
+[/settings/external scripts/scripts]
+handle_domaintrust = cmd /c echo scripts\handle_my_issue.ps1 ; exit($lastexitcode) | powershell.exe -command - 
+
+check_my_issue = cmd /c echo scripts\check_my_issue.ps1 ; exit($lastexitcode) | powershell.exe -command -</pre>
+<pre># set the passive check run interval
+ [/settings/scheduler/schedules/default]
+ interval = 30s</pre>
+<pre># schedule the check
+ [/settings/scheduler/schedules]
+ check_my_issue = check_my_issue</pre>
+<h2>debugging</h2>
+<p>To debug<br />
+1. tail -f nagios.log on the nagios server<br />
+2. net stop nscp on the client<br />
+3. nscp.exe test on the client<br />
+4. Now trigger the scripts / commands from either the server or the client (inside the nscp&nbsp;console)<br />
+(type queries to see if all scripts are listed)</p>
