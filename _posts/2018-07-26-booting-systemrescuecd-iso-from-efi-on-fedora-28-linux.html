@@ -1,27 +1,14 @@
 ---
-layout: post
-status: publish
-published: true
 title: Booting SystemRescueCD ISO from EFI on Fedora 28 Linux
-author:
-  display_name: Sudesh Jethoe
-  login: sudeshjethoe
-  email: sudesh@jethoe.nl
-  url: ''
-author_login: sudeshjethoe
-author_email: sudesh@jethoe.nl
-wordpress_id: 1834
-wordpress_url: https://www.dynamicautomation.nl/?p=1834
 date: '2018-07-26 01:08:31 +0200'
-date_gmt: '2018-07-25 23:08:31 +0200'
 categories:
+- blog
+tags:
 - linux
 - lvm
 - efi
 - grub2
 - fedora
-tags: []
-comments: []
 ---
 <h1>Introduction</h1>
 <p>Yesterday I noticed that my Thinkpad X1 laptop had assigned too little diskspace to its OS partition. As it was running in a physical partition and not a logical one, it was time to move it to LVM. Unfortunately I had no USB sticks anymore.<br />
@@ -45,7 +32,7 @@ $ ls /sys/firmware/efi/
 config_table efivars esrt fw_platform_size fw_vendor runtime runtime-map systab
 
 # this command will show output when running in EFI mode (not installed by default)
-$ efibootmgr 
+$ efibootmgr
 BootCurrent: 0012
 Timeout: 0 seconds
 BootOrder: 0012,0013,0000,0001,0002,0003,000C,0007,0008,0009,000A,000B,000D
