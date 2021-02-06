@@ -26,6 +26,10 @@ paginate: 5
 paginate_path: /blog/page:num/
 timezone: Europe/Amsterdam
 
+# site logo on frontpage
+logo: /assets/images/tux_logo.svg
+# default teaser image if not set in post
+teaser: /assets/images/teaser_thumbnail_default.jpg
 
 include:
   - _pages
