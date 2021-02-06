@@ -5,7 +5,7 @@ toc_sticky: true
 toc_label: "Big Data Strategy"
 excerpt: "Coursework for MBA Big Data & Business Analytics, devise strategies for government and corporate enterprises on big data."
 header:
-  image: /assets/images/foo-bar-identity.jpg
+  image: /assets/images/advantedge_1280x550.jpg
   teaser: /assets/images/foo-bar-identity-th.jpg
 sidebar:
   - title: "Role"

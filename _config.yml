@@ -81,6 +81,9 @@ defaults:
       type: posts
     values:
       layout: single
+      # additional classes for styling blogposts
+      classes:
+        - blogpost
       author_profile: true
       read_time: true
       comments: true
@@ -98,6 +101,9 @@ defaults:
       path: ""
       type: portfolio
     values:
+      # additional classes for styling portfolio pages
+      classes:
+        - portfoliopost
       layout: single
       author_profile: false
       share: true
