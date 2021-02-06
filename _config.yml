@@ -46,6 +46,7 @@ author:
   name: "Sudesh Jethoe, MSc. MBA."
   avatar: "https://www.gravatar.com/avatar/300a064a668a97b462ef1eed24f346f5?size=250"
   bio: "Engineering, Leadership, Cloud, Big Data"
+  location: "Amsterdam"
   links:
      - label: "Email"
        icon:  "fas fa-fw fa-envelope-square"
@@ -57,7 +58,7 @@ author:
        icon:  "fas fa-file-pdf"
        url:   "/assets/cv.pdf"
      - label: "LinkedIn"
-       icon:  "fab fa-linkedin"
+       icon:  "fab fa-fw fa-linkedin"
        url:   "https://www.linkedin.com/in/sudeshjethoe"
      - label: "GitHub"
        icon:  "fab fa-fw fa-github"

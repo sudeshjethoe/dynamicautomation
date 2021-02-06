@@ -8,12 +8,20 @@ header:
   image: /assets/images/advantedge_1280x220.jpg
   teaser: /assets/images/advantedge_500x300.jpg
 sidebar:
-  - title: "Role"
-    image: assets/images/amsterdam_business_school_logo.gif
-    image_alt: "logo Amsterdam Business School"
-    text: "MBA student"
-  - title: "Responsibilities"
-    text: "Develop a data strategy"
+- title: "Role"
+  image: assets/images/amsterdam_business_school_logo.gif
+  image_alt: "logo Amsterdam Business School"
+  text: "MBA student"
+- title: "Responsibilities"
+  text: "Develop a data strategy"
+categories:
+- portfolio
+tags:
+- "big data"
+- governance
+- operations
+- strategy
+- data
 ---
 
 
