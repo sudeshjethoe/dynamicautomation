@@ -39,19 +39,25 @@ plugins:
   - jemoji
 
 author:
-  name: "Sudesh Jethoe"
+  name: "Sudesh Jethoe, MSc. MBA."
   avatar: "https://www.gravatar.com/avatar/300a064a668a97b462ef1eed24f346f5?size=250"
-  bio: "Placeholder bio!!"
+  bio: "Engineering, Leadership, Cloud, Big Data"
   links:
-     - label: "GitHub"
-       icon:  "fab fa-fw fa-github"
-       url:   "https://github.com/sudeshjethoe"
+     - label: "Email"
+       icon:  "fas fa-fw fa-envelope-square"
+       url:   "mailto:&#115;&#117;&#100;&#101;&#115;&#104;&#64;&#100;&#121;&#110;&#97;&#109;&#105;&#99;&#97;&#117;&#116;&#111;&#109;&#97;&#116;&#105;&#111;&#110;&#46;&#110;&#108;" # sudesh@dynamicautomation.nl
+     - label: "WhatsApp"
+       icon:  "fab fa-fw fa-whatsapp"
+       url:   "https://wa.me/31634069057?text=Hi+Sudesh%2c+I+would+like+to+get+in+touch+with+you+for%3a+"
      - label: "My Resume"
        icon:  "fas fa-file-pdf"
        url:   "/assets/cv.pdf"
      - label: "LinkedIn"
        icon:  "fab fa-linkedin"
        url:   "https://www.linkedin.com/in/sudeshjethoe"
+     - label: "GitHub"
+       icon:  "fab fa-fw fa-github"
+       url:   "https://github.com/sudeshjethoe"
 
 footer:
   links:
@@ -61,6 +67,12 @@ footer:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/sudeshjethoe"
+
+# portolio category
+collections:
+  portfolio:
+    output: true
+    permalink: /:collection/:path/
 
 defaults:
   # _posts
@@ -81,6 +93,15 @@ defaults:
     values:
       layout: single
       author_profile: true
+  # _portfolio
+  - scope:
+      path: ""
+      type: portfolio
+    values:
+      layout: single
+      author_profile: false
+      share: true
+
 
 category_archive:
   type: liquid
