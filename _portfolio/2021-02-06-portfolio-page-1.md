@@ -5,25 +5,15 @@ toc_sticky: true
 toc_label: "Big Data Strategy"
 excerpt: "Coursework for MBA Big Data & Business Analytics, devise strategies for government and corporate enterprises on big data."
 header:
-  image: /assets/images/advantedge_1280x550.jpg
-  teaser: /assets/images/foo-bar-identity-th.jpg
+  image: /assets/images/advantedge_1280x220.jpg
+  teaser: /assets/images/advantedge_500x300.jpg
 sidebar:
   - title: "Role"
-    image: http://placehold.it/350x250
-    image_alt: "logo"
-    text: "Chief Data Officer (CDO)"
+    image: assets/images/amsterdam_business_school_logo.gif
+    image_alt: "logo Amsterdam Business School"
+    text: "MBA student"
   - title: "Responsibilities"
-    text: "Develop a data strategy for the dutch government and my current organization."
-gallery:
-  - url: /assets/images/unsplash-gallery-image-1.jpg
-    image_path: assets/images/unsplash-gallery-image-1-th.jpg
-    alt: "placeholder image 1"
-  - url: /assets/images/unsplash-gallery-image-2.jpg
-    image_path: assets/images/unsplash-gallery-image-2-th.jpg
-    alt: "placeholder image 2"
-  - url: /assets/images/unsplash-gallery-image-3.jpg
-    image_path: assets/images/unsplash-gallery-image-3-th.jpg
-    alt: "placeholder image 3"
+    text: "Develop a data strategy"
 ---
 
 
@@ -42,9 +32,6 @@ As the Chief Data Officer I would enable teams to share their data with other te
 To develop the capability successfully, two key concerns have to be addressed, namely the skill gap of the employees regarding data-driven practices and the privacy and security regulations within the organization.
 In [1] it is proposed to have organizations collaborate with educational institutions in order to address the skill gap in data engineering and -science. In my experience it is impossible for people to understand and successfully apply data-driven practices successfully with merely a training. A better way would be to attract experts which can guide and drive the teams in the right direction by a period of intensive training and cooperation, effectively building the practice together. Such an approach has two benefits, namely that people get to work with real experts and gain insight in the thought process and paradigms of data science. Also, by building the practice themselves, the team acquires a greater sense of ownership of the implemented solutions.
     To address the issue of privacy we are required to follow the law, and as is proposed in [1] is the incorporation of “general best practices”. This is interesting, as we are dealing with possibilities created by the utilization of new technology. These possibilities did not exist before and therefore it can be difficult or even impossible to find “best practices”. It would be better to give teams the freedom to develop their data science practices, whilst at the same time making them responsible for the risks which might emerge from their progress. This approach prevents teams from being held back by defensive departments such as risk. While a risk department´s primary concern is mitigating risk, a team is better capable of finding the balance between both risk and development of new solutions.
-
-{% include gallery caption="This is a sample gallery to go along with this case study." %}
-
 
 # Developing a data strategy for the Dutch government
 
