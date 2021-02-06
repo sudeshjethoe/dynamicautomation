@@ -28,6 +28,11 @@ html {
 	font-size: larger;
 }
 
+/* change footer bgcolor to text color of air theme */
+#footer.page__footer {
+    background-color: #222831;
+}
+
 /* portfolio pages contain lost of text, added custom font size for this one */
 body.portfoliopost {
 	.page__content {
