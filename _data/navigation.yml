@@ -7,5 +7,7 @@ main:
     url: /articles/
   - title: "Tags"
     url: /tags/
+  - title: "My Events"
+    url: /events/
   - title: "Contact"
     url: /contact/

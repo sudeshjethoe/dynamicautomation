@@ -1,6 +1,5 @@
 ---
 #title: Home
-layout: single
 date: 2021-02-05
 permalink: /
 header:

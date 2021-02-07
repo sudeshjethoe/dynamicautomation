@@ -2,6 +2,9 @@
 title: About Me
 date: 2021-02-05
 permalink: /about/
+header:
+  overlay_image: /assets/images/negativespace-21.jpg
+  overlay_filter: 0.5
 ---
 
 Hi
