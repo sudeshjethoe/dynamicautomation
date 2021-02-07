@@ -3,7 +3,6 @@
 # (bundle exec) jekyll serve
 # JEKYLL_GITHUB_TOKEN=********** jekyll serve
 
-
 ######### MAIN CONFIG ######################
 repository: sudeshjethoe/sudeshjethoe.github.io
 title: Dynamic Automation
