@@ -2,8 +2,10 @@
 # bundle exec jekyll build -v
 # (bundle exec) jekyll serve
 # JEKYLL_GITHUB_TOKEN=********** jekyll serve
-repository: sudeshjethoe/sudeshjethoe.github.io
 
+
+######### MAIN CONFIG ######################
+repository: sudeshjethoe/sudeshjethoe.github.io
 title: Dynamic Automation
 email: sudesh@dynamicautomation.nl
 description: >- # this means to ignore newlines until "baseurl:"
@@ -11,13 +13,26 @@ description: >- # this means to ignore newlines until "baseurl:"
   line in _config.yml. It will appear in your document head meta (for
   Google search results) and in your feed.xml site description.
 
-twitter_username: sudeshjethoe
-github_username:  sudeshjethoe
+######### SOCIAL SETTINGS ###################
+# google: social links in google search results
+social:
+  type: Person
+  name: "Sudesh Jethoe"
+  links:
+    - "https://twitter.com/sudeshjethoe"
+    - "https://www.linkedin.com/in/sudeshjethoe"
 
+# twitter: attribute site to twitter account
+twitter:
+  username: "sudeshjethoe"
+
+# opengraph (twitter, facebook)
+og_image: "/apple-touch-icon.png"
+
+######### MINIMAL MISTAKES THEME CONFIG ######
 minimal_mistakes_skin: air
 search: true
 
-# build settings
 markdown: kramdown
 remote_theme: "mmistakes/minimal-mistakes"
 # output
@@ -42,6 +57,7 @@ plugins:
   - jekyll-include-cache
   - jemoji
 
+######### BEGIN SITE FRONT DEFAULTS ##########
 author:
   name: "Sudesh Jethoe, MSc. MBA."
   avatar: "https://www.gravatar.com/avatar/300a064a668a97b462ef1eed24f346f5?size=250"
