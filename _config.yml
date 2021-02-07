@@ -5,6 +5,7 @@
 
 ######### MAIN CONFIG ######################
 repository: sudeshjethoe/sudeshjethoe.github.io
+url: "https://dynamicautomation.nl"
 title: Dynamic Automation
 email: sudesh@dynamicautomation.nl
 description: >- # this means to ignore newlines until "baseurl:"
