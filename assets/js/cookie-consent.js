@@ -34,11 +34,11 @@ window.cookieconsent.initialise({
 		if (type == 'opt-in' && didConsent) {
 			// enable cookies
 			loadGAonConsent();
-		},
-			if (type == 'opt-out' && !didConsent) {
-				// disable cookies
-			}
-	},
+		}
+    if (type == 'opt-out' && !didConsent) {
+      // disable cookies
+    }
+  },
 	onRevokeChoice: function() {
 		var type = this.options.type;
 		if (type == 'opt-in') {
