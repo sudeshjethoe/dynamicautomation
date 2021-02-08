@@ -2,8 +2,8 @@
 window.cookieconsent.initialise({
 	"palette": {
 		"popup": {
-			"background": "#343c66",
-			"text": "#cfcfe8"
+			"background": "#222831",
+			"text": "#ffffff"
 		},
 		"button": {
 			"background": "#f71559"
@@ -12,7 +12,7 @@ window.cookieconsent.initialise({
 	"type": "opt-in",
 	"content": {
 		"message": "This website uses cookies to improve to optimize the user experience.",
-		"dismiss": "No thanks",
+		"deny": "No thanks",
 		"allow": "Yes please",
 		"link": "Learn more",
 		"href": "https://dynamicautomation.nl/privacy/"
