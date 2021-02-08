@@ -1,0 +1,27 @@
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- modified for consent: https://ptc-it.de/enabling-cookie-consent-with-jekyll-minimal-mistakes/ -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ site.analytics.google.tracking_id }}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+
+    /* default consent "denied" */
+    /* see also: https://developers.google.com/gtagjs/devguide/consent */
+
+    gtag('consent', 'default', {
+        'ad_storage': 'denied',
+        'analytics_storage': 'denied',
+        'wait_for_update': 500
+      });
+
+    gtag('js', new Date());
+    gtag('config', '{{ site.analytics.google.tracking_id }}', { 'anonymize_ip': {{ site.analytics.google.anonymize_ip | default: false }}});
+</script>
+<script>
+  function loadGAonConsent() {
+      gtag('consent', 'update', {
+          'analytics_storage': 'granted',
+        });
+    }
+</script>
+<!-- vim:set softtabstop=2 shiftwidth=2 tabstop=2 expandtab: -->
