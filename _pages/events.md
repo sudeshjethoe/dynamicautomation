@@ -31,4 +31,3 @@ Slides can be downloaded where applicable.
 | 14-11-2016 | ING Building Blocks Conference | [building better monitoring]({{ site.baseurl }}/assets/documents/2016.11.14-buildingblocks.pdf) |
 |------------|---------|---------|
 
-
