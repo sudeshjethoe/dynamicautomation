@@ -24,11 +24,11 @@ Slides can be downloaded where applicable.
 |------------+---------+---------|
 | Date       | Event   | Session |
 |------------|---------|---------|
-| <nobr>19-05-2020</nobr> | [Dutch Cloud Meetup](https://www.meetup.com/dutch-cloud-meetup/events/270522969/) | [Introduction to the Azure Cloud Adoption Framework]({{ site.baseurl }}/assets/presentations/2020.05.19-introduction_to_Azure_CAF.pdf)
+| <nobr>19-05-2020</nobr> | [Dutch Cloud Meetup](https://www.meetup.com/dutch-cloud-meetup/events/270522969/) | [Introduction to the Azure Cloud Adoption Framework]({{ site.baseurl }}/assets/documents/2020.05.19-introduction_to_Azure_CAF.pdf)
 |------------|---------|---------|
-| 22-10-2019 | [Dutch Kubernetes & Cloud Native Meetup](https://www.meetup.com/Dutch-Kubernetes-Meetup/events/265371133/) | [Building an enterprise scale container platform on Azure at ING]({{ site.baseurl }}/assets/presentations/2019.10.22-kubernetes_container_platform_at_ING.pdf)
+| 22-10-2019 | [Dutch Kubernetes & Cloud Native Meetup](https://www.meetup.com/Dutch-Kubernetes-Meetup/events/265371133/) | [Building an enterprise scale container platform on Azure at ING]({{ site.baseurl }}/assets/documents/2019.10.22-kubernetes_container_platform_at_ING.pdf)
 |------------|---------|---------|
-| 14-11-2016 | ING Building Blocks Conference | [building better monitoring]({{ site.baseurl }}/assets/presentations/2016.11.14-buildingblocks.pdf) |
+| 14-11-2016 | ING Building Blocks Conference | [building better monitoring]({{ site.baseurl }}/assets/documents/2016.11.14-buildingblocks.pdf) |
 |------------|---------|---------|
 
 
