@@ -1,6 +1,6 @@
 ---
 title: Upcoming & Past Events
-date: 2021-02-05
+date: 2021-02-09
 permalink: /events/
 header:
   overlay_image: /assets/images/negativespace-21.jpg
@@ -17,6 +17,8 @@ Slides can be downloaded where applicable.
 | Date    | Event   | Session |
 |---------|---------|---------|
 | x       | Your event? | Always looking forward to give a talk, feel free to [contact]({{ site.baseurl }}/contact/) me! |
+|---------|---------|---------|
+| <nobr>20-05-2021</nobr> | [<nobr>Enterprise Cloud Computing 2021</nobr>](https://whitehallmedia.co.uk/eccmay2021/) | [Using Cloud to Drive Business Agility]() |
 |---------|---------|---------|
 
 ## Past

@@ -1,5 +1,6 @@
 ---
 title: "Developing a Big Data Strategy"
+date: 2017-11-01
 toc: true
 toc_sticky: true
 toc_label: "Big Data Strategy"

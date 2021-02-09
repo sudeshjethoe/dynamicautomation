@@ -1,43 +1,52 @@
 ---
 title: Configure postfix with Gmail as relayhost
-date: '2018-05-03 14:30:56 +0200'
-categories:
-- blog
+date: 2018-05-03
+category:
+  - articles
 tags:
-- linux
-- postfix
-- sendmail
-- gmail
-- gsuite
-- smtp
-comments: []
+  - linux
+  - postfix
+  - sendmail
+  - gmail
+  - gsuite
+  - smtp
 ---
-<h2>Introduction</h2>
-<p>On Linux servers it is often useful to be able to send e-mail for logging and alerting.<br />
-When using a VPS setup of the SMTP service is often not included and needs to be configured manually.<br />
-As Google already has a pretty good mail service with Gmail, it's useful to use this for relaying your emails.</p>
-<p>In this post we will discuss the requirements for using gmail as a relayhost and steps necessary to configure postfix.</p>
-<p>As Google services require credentials and you shouldn't use your own username and password for login, it's a good idea to create an "app password" for the postfix service, instructions can be found <a href="https://support.google.com/mail/answer/185833?hl=en" target="_blank" rel="noopener">here</a>.</p>
-<p>After creating the app password we can login to the VPS and configure Postfix.<br />
-! Be aware there are many instructions available online, but I found many of them incomplete or just plain wrong.</p>
-<h2>General steps</h2>
-<p>The general steps are:</p>
-<ol>
-<li>create <strong>sasl_passwd</strong> file which contains the plaintext credentials for google</li>
-<li>generate <strong>sasl_passwd.db</strong> file which is used by postfix</li>
-<li>create a <strong>tls_policy</strong> file which contains a plaintext version of the tls_policy used by postfix</li>
-<li>generate <strong>tls_policy.db</strong> file which is used by postfix</li>
-<li>edit settings and references to previous files in postfix main configuration file <strong>main.cf</strong></li>
-</ol>
-<h2>1. create <strong>sasl_passwd</strong> file</h2>
-<p>Create a new file: <em>/etc/postfix/sasl_passwd</em> with content:</p>
-<pre>[smtp.gmail.com]:587 USER@DOMAIN:PASSWORD
-</pre>
-<p>Where<br />
-USER = your gmail or gsuite username<br />
-DOMAIN = gmail.com or yourgsuitedomain.com<br />
-PASSWORD = the app password you previously created</p>
-<h2>2. generate <strong>sasl_passwd.db</strong></h2>
+
+On Linux servers it is often useful to be able to send e-mail for logging and alerting.\
+When using a VPS setup of the SMTP service is often not included and needs to be configured manually.\
+As Google already has a pretty good mail service with Gmail, it's useful to use this for relaying your emails.\
+In this post we will discuss the requirements for using gmail as a relayhost and steps necessary to configure postfix.\
+
+As Google services require credentials and you shouldn't use your own username and password for login,
+it's a good idea to create an "app password" for the postfix service, instructions can be found
+<a href="https://support.google.com/mail/answer/185833?hl=en" target="_blank" rel="noopener">here</a>.
+
+After creating the app password we can login to the VPS and configure Postfix.\
+**! Be aware there are many instructions available online, but I found many of them incomplete or just plain wrong.**
+
+# General steps
+
+The general steps are:
+1. Create <strong>sasl_passwd</strong> file which contains the plaintext credentials for google
+2. Generate <strong>sasl_passwd.db</strong> file which is used by postfix
+3. Create a <strong>tls_policy</strong> file which contains a plaintext version of the tls_policy used by postfix
+4. Generate <strong>tls_policy.db</strong> file which is used by postfix
+5. Edit settings and references to previous files in postfix main configuration file <strong>main.cf</strong>
+
+## 1. Create <strong>sasl_passwd</strong> file
+Create a new file: <em>/etc/postfix/sasl_passwd</em> with content:
+```bash
+[smtp.gmail.com]:587 USER@DOMAIN:PASSWORD
+```
+
+Where
+```bash
+USER = your gmail or gsuite username
+DOMAIN = gmail.com or yourgsuitedomain.com
+PASSWORD = the app password you previously created
+```
+
+## 2. generate <strong>sasl_passwd.db</strong>
 <p><code>cd /etc/postfix<br />
 postmap /etc/postfix/sasl_passwd</code><br />
 This command generates the sasl_passwd.db file.</p>
