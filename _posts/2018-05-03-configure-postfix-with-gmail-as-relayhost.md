@@ -16,7 +16,7 @@ tags:
 On Linux servers it is often useful to be able to send e-mail for logging and alerting.\
 When using a VPS setup of the SMTP service is often not included and needs to be configured manually.\
 As Google already has a pretty good mail service with Gmail, it's useful to use this for relaying your emails.\
-In this post we will discuss the requirements for using gmail as a relayhost and steps necessary to configure postfix.\
+In this post we will discuss the requirements for using gmail as a relayhost and steps necessary to configure postfix.
 
 As Google services require credentials and you shouldn't use your own username and password for login,
 it's a good idea to create an "app password" for the postfix service, instructions can be found
