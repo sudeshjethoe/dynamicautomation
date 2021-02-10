@@ -141,8 +141,9 @@ defaults:
         - portfoliopost
       layout: single
       read_time: true
-      author_profile: false
-      share: true
+      toc: true
+      toc_sticky: true
+      toc_label: "Contents"
 
 tag_archive:
   type: liquid

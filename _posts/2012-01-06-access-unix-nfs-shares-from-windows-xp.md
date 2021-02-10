@@ -1,7 +1,7 @@
 ---
 title: Access Unix NFS shares from Windows XP
 date: 2012-01-06
-categories:
+category:
 - articles
 tags:
 - linux

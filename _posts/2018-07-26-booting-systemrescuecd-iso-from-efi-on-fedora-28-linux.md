@@ -1,7 +1,7 @@
 ---
 title: Booting SystemRescueCD ISO from EFI on Fedora 28 Linux
-date: '2018-07-26 01:08:31 +0200'
-categories:
+date: 2018-07-26
+category:
 - articles
 tags:
 - linux

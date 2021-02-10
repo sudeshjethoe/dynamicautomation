@@ -1,7 +1,7 @@
 ---
 title: Configuring NFS on Fonera 2.0n
 date: 2012-01-06
-categories:
+category:
 - articles
 tags:
 - linux

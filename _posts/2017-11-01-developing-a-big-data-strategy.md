@@ -1,8 +1,7 @@
 ---
 title: "Developing a Big Data Strategy"
 date: 2017-11-01
-toc: true
-toc_sticky: true
+author_profile: false
 toc_label: "Big Data Strategy"
 excerpt: "Coursework for MBA Big Data & Business Analytics, devise strategies for government and corporate enterprises on big data."
 header:
@@ -15,8 +14,7 @@ sidebar:
   text: "MBA student"
 - title: "Responsibilities"
   text: "Develop a data strategy"
-author_profile: false
-categories:
+category:
 - portfolio
 tags:
 - "big data"
