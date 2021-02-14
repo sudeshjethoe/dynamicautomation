@@ -11,7 +11,7 @@ window.cookieconsent.initialise({
 	},
 	"type": "opt-in",
 	"content": {
-		"message": "This website uses cookies to improve to optimize the user experience.",
+		"message": "This website uses cookies to optimize the user experience.",
 		"deny": "No thanks",
 		"allow": "Yes please",
 		"link": "Learn more",
@@ -51,4 +51,4 @@ window.cookieconsent.initialise({
 	}
 });
 
-/* vim:set softtabstop=2 shiftwidth=2 tabstop=2 expandtab: */
+/* vim: softtabstop=2 shiftwidth=2 tabstop=2 expandtab: */
