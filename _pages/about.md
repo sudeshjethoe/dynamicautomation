@@ -1,7 +1,7 @@
 ---
 # vim: foldlevelstart=2
-title: About Me
-date: 2021-02-05
+title: About
+date: 2022-05-07
 permalink: /about/
 header:
   overlay_image: /assets/images/negativespace-21.jpg
